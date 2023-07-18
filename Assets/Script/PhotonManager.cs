@@ -13,7 +13,9 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public GameObject PlayerNamePanel;
     public GameObject LobbyPanel;
     public GameObject RoomCreatePanel;
+    public GameObject ConnectingPanel;
 
+   
 
     #region UnityMehtods
     // Start is called before the first frame update
@@ -37,6 +39,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.LocalPlayer.NickName = name;
             PhotonNetwork.ConnectUsingSettings();
+            ActiiveMyPanel(ConnectingPanel.name);
         }
         else
         {
@@ -73,7 +76,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         LobbyPanel.SetActive(PanelName.Equals(LobbyPanel.name));
         PlayerNamePanel.SetActive(PanelName.Equals(PlayerNamePanel.name));
         RoomCreatePanel.SetActive(PanelName.Equals(RoomCreatePanel.name));
-
+        ConnectingPanel.SetActive(PanelName.Equals(ConnectingPanel.name));
     }
 
     #endregion
