@@ -5,10 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using TMPro;
+using Photon.Realtime;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
     public TMP_InputField userNameText;
+    public TMP_InputField roomNameText;
+    public TMP_InputField MaxPlayer;
 
     public GameObject PlayerNamePanel;
     public GameObject LobbyPanel;
@@ -47,6 +50,17 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void OnClickRoomCreate()
+    {
+       string roomName = roomNameText.text; 
+        if (!string.IsNullOrEmpty(roomName)) 
+        {
+            roomName = roomName + Random.Range(0, 1000);                
+        }
+        RoomOptions roomOptions = new RoomOptions();
+       // RoomOptions.MaxPlayers=(byte)int.Parse(roomName);(maxPlayer.text);
+        PhotonNetwork.CreateRoom(roomName);
+    }
     #endregion
 
 
