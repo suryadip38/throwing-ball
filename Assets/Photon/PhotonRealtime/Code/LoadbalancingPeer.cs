@@ -1919,6 +1919,9 @@ namespace Photon.Realtime
         /// Without this option, the client that set the value to BAR never hears from the server that the official copy has been updated to BAR, and thus gets stuck with a value of FOO.
         /// </remarks>
         public bool BroadcastPropsChangeToAll { get { return this.broadcastPropsChangeToAll; } set { this.broadcastPropsChangeToAll = value; } }
+
+        public static byte MaxPlayer { get; set; }
+
         private bool broadcastPropsChangeToAll = true;
 
         #if SERVERSDK
